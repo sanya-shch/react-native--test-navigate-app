@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from "react-native";
+import { Easing } from "react-native";
 import { NavigationNativeContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from "@react-navigation/stack";
 import {HomeScreen} from "./screens/Home";
 import {SettingsScreen} from "./screens/Settings";
 
@@ -27,10 +27,47 @@ const Stack = createStackNavigator();
 //   </View>
 // );
 
+
+// transitionSpec
+const config = {
+    animation: "spring",
+    config: {
+        stiffness: 1000,
+        damping: 50,
+        mass: 3,
+        overshootClamping: false,
+        restDisplacementThreshold: 0.01,
+        restSpeedThreshold: 0.01
+    }
+};
+const closeConfig = {
+    animation: "timing",
+    config: {
+        duration: 500,
+        easing: Easing.linear
+    }
+};
+
 export default function App() {
   return (
       <NavigationNativeContainer>
-          <Stack.Navigator>
+          <Stack.Navigator
+              screenOptions={{
+                  gestureEnabled: true,
+                  gestureDirection: "horizontal",
+
+                  // ...TransitionPresets.SlideFromRightIOS,
+
+                  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+
+                  // transitionSpec: {
+                  //   open: config,
+                  //   close: closeConfig
+                  // }
+              }}
+              headerMode="float"
+              animation="fade"
+          >
               <Stack.Screen
                   options={{ title: "Home Screen" }}
                   name="Home"
