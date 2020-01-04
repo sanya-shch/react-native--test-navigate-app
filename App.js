@@ -2,28 +2,30 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from "react-native";
 import { NavigationNativeContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import {HomeScreen} from "./screens/Home";
+import {SettingsScreen} from "./screens/Settings";
 
 const Stack = createStackNavigator();
 
-const HomeScreen = ({ navigation }) => (
-  <View style={styles.container}>
-      <Text>HomeScreen</Text>
-      <Button
-          title="Go To Settings Screen"
-          onPress={() => navigation.navigate("Settings")}
-      />
-  </View>
-);
+// const HomeScreen = ({ navigation }) => (
+//   <View style={styles.container}>
+//       <Text>HomeScreen</Text>
+//       <Button
+//           title="Go To Settings Screen"
+//           onPress={() => navigation.navigate("Settings")}
+//       />
+//   </View>
+// );
 
-const SettingsScreen = ({ navigation }) => (
-  <View style={styles.container}>
-      <Text>SettingsScreen</Text>
-      <Button
-          title="Go To Home Screen"
-          onPress={() => navigation.goBack()}
-      />
-  </View>
-);
+// const SettingsScreen = ({ navigation }) => (
+//   <View style={styles.container}>
+//       <Text>SettingsScreen</Text>
+//       <Button
+//           title="Go To Home Screen"
+//           onPress={() => navigation.goBack()}
+//       />
+//   </View>
+// );
 
 export default function App() {
   return (
@@ -43,11 +45,11 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
