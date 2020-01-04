@@ -20,6 +20,7 @@ export const HomeScreen = ({ navigation }) => {
                 title="Go To Settings Screen"
                 onPress={() => navigation.navigate("Settings")}
             />
+            <Button title="Go To Details Screen" onPress={() => navigation.navigate("Details")} />
         </View>
     );
 };
